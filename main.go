@@ -24,7 +24,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	time.Sleep(time.Duration(timeout) * time.Second)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	_, err = fmt.Fprintf(w, "{\"timeout\": %s,\"status\": \"OK\"}")
+	_, err = fmt.Fprintf(w, "{\"timeout\": %d,\"status\": \"OK\"}", timeout)
 	if err != nil {
 		log.Printf("Failed to write http response: %v\n", err)
 	}
